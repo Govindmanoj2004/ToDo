@@ -12,10 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   //task list
-  List toDoTask = [
-    ["Gaming", false],
-    ["Gym", true],
-  ];
+  List toDoTask = [];
 
   //Task state change method
   void checkBoxChanged(bool? value, int index) {
@@ -50,6 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  //delete task
+  void deleteTask(int index) {
+    setState(() {
+      toDoTask.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "To Do",
+          "TODO",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
@@ -76,6 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
             taskName: toDoTask[index][0],
             taskState: toDoTask[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            deleteTask: (context) => deleteTask(index),
           );
         },
       ),

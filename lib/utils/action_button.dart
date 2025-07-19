@@ -20,13 +20,13 @@ class ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      child: Text(buttonName, style: TextStyle(color: Colors.white)),
       color: buttonColor,
       elevation: 0,
       //adding boder radius to a MaterialButton
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusGeometry.circular(12),
       ),
+      child: Text(buttonName, style: TextStyle(color: Colors.white)),
     );
   }
 }
