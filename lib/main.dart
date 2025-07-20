@@ -7,7 +7,7 @@ void main() async {
   await Hive.initFlutter();
 
   //open a box(box is the term used in flutter for db,create database)
-  var box = await Hive.openBox("mybox");
+  await Hive.openBox("mybox");
 
   runApp(const MainApp());
 }

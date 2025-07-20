@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/data/database.dart';
+import 'package:todo/utils/edit_task.dart';
 import 'package:todo/utils/todo_tile.dart';
 import 'package:todo/utils/dialog_box.dart';
 
@@ -80,6 +81,32 @@ class _HomeScreenState extends State<HomeScreen> {
     db.updateData();
   }
 
+  //open dialog for edit
+  void editTask(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return EditTask(
+          controller: _controller,
+          onCancel: () => Navigator.of(context).pop(),
+          onEdit: () {
+            editTaskName(index, _controller.text);
+            Navigator.of(context).pop();
+          },
+        );
+      },
+    );
+  }
+
+  //method to edit
+  void editTaskName(int index, String updatedName) {
+    setState(() {
+      db.toDoTask[index][0] = updatedName;
+    });
+    db.updateData();
+    _controller.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.blue,
         elevation: 0,
         centerTitle: true,
+        
         title: Text(
           "TODO",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -107,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
             taskState: db.toDoTask[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
             deleteTask: (context) => deleteTask(index),
+            editTask: (context) => editTask(index),
           );
         },
       ),
