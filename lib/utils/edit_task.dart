@@ -56,6 +56,5 @@ class EditTask extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

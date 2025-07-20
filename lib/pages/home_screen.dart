@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.blue,
         elevation: 0,
         centerTitle: true,
-        
+
         title: Text(
           "TODO",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
