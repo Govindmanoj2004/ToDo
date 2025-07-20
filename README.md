@@ -37,8 +37,9 @@ A simple Todo application built using **Flutter** and core **Widgets**.
 
 ## 🔄 Planned Updates
 
-- Integrate with a database for persistent storage.
-- Add more features such as editing tasks, categories, and filters.
+- Integrate with a database for persistent storage.✔️
+- Add more features such as editing tasks etc.✔️
+- Add scheduled tasks and notification.
 
 ---
 
