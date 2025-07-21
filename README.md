@@ -1,4 +1,4 @@
-# 📝 Flutter Todo App
+# 📝 Flutter Todo App(Old design)
 
 A simple Todo application built using **Flutter** and core **Widgets**.
 
